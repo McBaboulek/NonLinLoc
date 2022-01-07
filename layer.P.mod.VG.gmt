@@ -26,7 +26,7 @@ set PLOT_LAT_LONG = 0
 psbasemap -R0.5/1.0/0.5/1.0 -Bf10 -JX20.000000/28.700000 -K > $POSTSCRIPT_NAME.ps #-R<xmin>/<xmax>/<ymin>/<ymax>[/<zmin>/<zmax>] -Jz
 
 # Rect x/y in km
-set RVAL = '-R0.000000/300.000000/-3.000000/40.000000/-9999/9999'
+set RVAL = '-R0.000000/300.000000/-3.000000/40.000000' #/-9999/9999'
 # Rect x/y in km
 set BVAL = '-B100.000000:Y(km):/10.000000:Z(km)::.gmt/layer.P.mod.VG__(1_0_->_1_301):WESN'
 # Rect x/y in km
