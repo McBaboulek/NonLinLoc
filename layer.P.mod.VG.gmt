@@ -35,7 +35,7 @@ set JVAL = '-Jx0.054167/-0.054167 -Jz0.054167'
 psbasemap $JVAL $RVAL $BVAL -X1.750000 -Y3.750000 -K -O >> $POSTSCRIPT_NAME.ps
 
 # Rect x/y in km
-xyz2grd gmt/layer.P.mod.VG.X.grd -Ggmt/layer.P.mod.VG.X.grdgmt -I1.000000/1.000000 $RVAL -Dkm/km/=/0.0/0.0/gmt/layer.P.mod.VG/remark -V -Zf
+xyz2grd gmt/layer.P.mod.VG.X.grd -Ggmt/layer.P.mod.VG.X.grdgmt -I1.000000/1.000000 $RVAL -Dkm/km/=/0.0/0.0/gmt/layer.P.mod.VG/remark -V #-Zf
 set SCALE_FLAG = 
 
 if (-e Grid2GMT.cpt) then
