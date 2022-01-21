@@ -23,6 +23,7 @@ set PLOT_LAT_LONG = 0
 #set PLOT_LAT_LONG = 1
 # ========================================================
 
+#psbasemap -R7/8/51/52 -Bf10 -JX20.000000/28.700000 -K > $POSTSCRIPT_NAME.ps #-R<xmin>/<xmax>/<ymin>/<ymax>[/<zmin>/<zmax>] -Jz
 psbasemap -R0.5/1.0/0.5/1.0 -Bf10 -JX20.000000/28.700000 -K > $POSTSCRIPT_NAME.ps #-R<xmin>/<xmax>/<ymin>/<ymax>[/<zmin>/<zmax>] -Jz
 
 # Rect x/y in km
@@ -35,7 +36,8 @@ set JVAL = '-Jx0.054167/-0.054167 -Jz0.054167'
 psbasemap $JVAL $RVAL $BVAL -X1.750000 -Y3.750000 -K -O >> $POSTSCRIPT_NAME.ps
 
 # Rect x/y in km
-xyz2grd gmt/layer.P.mod.VG.X.grd -Ggmt/layer.P.mod.VG.X.grdgmt -I1.000000/1.000000 $RVAL -Dkm/km/=/0.0/0.0/gmt/layer.P.mod.VG/remark -V #-Zf
+xyz2grd gmt/hamm_topo.grdgmt -Ggmt/hamm_topo.grdgmt -I1.000000/1.000000 $RVAL -Dkm/km/=/0.0/0.0/gmt/layer.P.mod.VG/remark -V #-Zf
+#xyz2grd gmt/layer.P.mod.VG.X.grd -Ggmt/layer.P.mod.VG.X.grdgmt -I1.000000/1.000000 $RVAL -Dkm/km/=/0.0/0.0/gmt/layer.P.mod.VG/remark -V #-Zf
 set SCALE_FLAG = 
 
 if (-e Grid2GMT.cpt) then
@@ -47,9 +49,11 @@ else
    set SCALE_FLAG = -L
 endif
 
-grdimage -n gmt/layer.P.mod.VG.X.grdgmt -Cgmt/layer.P.mod.VG.cpt $JVAL $RVAL $BVAL -K -O >> $POSTSCRIPT_NAME.ps#-S
+grdimage -n gmt/hamm_topo.grdgmt -Cgmt/layer.P.mod.VG.cpt $JVAL $RVAL $BVAL -K -O >> $POSTSCRIPT_NAME.ps#-S
+#grdimage -n gmt/layer.P.mod.VG.X.grdgmt -Cgmt/layer.P.mod.VG.cpt $JVAL $RVAL $BVAL -K -O >> $POSTSCRIPT_NAME.ps#-S
 
-grdcontour gmt/layer.P.mod.VG.X.grdgmt  -A-  -Cgmt/layer.P.mod.VG.cpt $JVAL $RVAL $BVAL -K -O >> $POSTSCRIPT_NAME.ps
+grdcontour gmt/hamm_topo.grdgmt  -A-  -Cgmt/layer.P.mod.VG.cpt $JVAL $RVAL $BVAL -K -O >> $POSTSCRIPT_NAME.ps
+#grdcontour gmt/layer.P.mod.VG.X.grdgmt  -A-  -Cgmt/layer.P.mod.VG.cpt $JVAL $RVAL $BVAL -K -O >> $POSTSCRIPT_NAME.ps
 
 if (-e Grid2GMT.X.gmt) then
    echo  'Running auxilliary GMT script: Grid2GMT.X.gmt'
