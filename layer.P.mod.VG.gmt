@@ -23,8 +23,8 @@ set PLOT_LAT_LONG = 0
 #set PLOT_LAT_LONG = 1
 # ========================================================
 
-#psbasemap -R7/8/51/52 -Bf10 -JX20.000000/28.700000 -K > $POSTSCRIPT_NAME.ps #-R<xmin>/<xmax>/<ymin>/<ymax>[/<zmin>/<zmax>] -Jz
-psbasemap -R0.5/1.0/0.5/1.0 -Bf10 -JX20.000000/28.700000 -K > $POSTSCRIPT_NAME.ps #-R<xmin>/<xmax>/<ymin>/<ymax>[/<zmin>/<zmax>] -Jz
+psbasemap -R7/8/51/52 -Bf10 -JX20.000000/28.700000 -K > $POSTSCRIPT_NAME.ps #-R<xmin>/<xmax>/<ymin>/<ymax>[/<zmin>/<zmax>] -Jz
+#psbasemap -R0.5/1.0/0.5/1.0 -Bf10 -JX20.000000/28.700000 -K > $POSTSCRIPT_NAME.ps #-R<xmin>/<xmax>/<ymin>/<ymax>[/<zmin>/<zmax>] -Jz
 
 # Rect x/y in km
 set RVAL = '-R0.000000/300.000000/-3.000000/40.000000' #/-9999/9999'
@@ -65,7 +65,8 @@ psbasemap $JVAL $RVAL $BVAL -K -O >> $POSTSCRIPT_NAME.ps
 
 psscale -Cgmt/layer.P.mod.VG.cpt -D10.000000/0.750000/14.0/0.5h -B:"Cell Transit Time (sec)": -X-1.750000 -Y-2.250000 $SCALE_FLAG -K -O >> $POSTSCRIPT_NAME.ps
 
-pstext -R0.5/1.0/0.5/1.0 -Bf10 -JX20.000000/28.700000 -X-0.000000 -Y-1.500000 -O << END >> $POSTSCRIPT_NAME.ps
+pstext -R7/8/51/52 -Bf10 -JX20.000000/28.700000 -X-0.000000 -Y-1.500000 -O << END >> $POSTSCRIPT_NAME.ps
+#pstext -R0.5/1.0/0.5/1.0 -Bf10 -JX20.000000/28.700000 -X-0.000000 -Y-1.500000 -O << END >> $POSTSCRIPT_NAME.ps
 0.501000 0.501000 7 0 4 1    Grid2GMT:v6.02.11 14Dec2021 21h34m01
 END
 
